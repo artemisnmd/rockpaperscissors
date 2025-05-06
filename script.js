@@ -24,11 +24,13 @@ function playGame(){
 
     for(let i = 1; i <= 5; i++){
         humanSelection = getHumanChoice();
+        console.log(`humanSelection = ${humanSelection}`);
         computerSelection = getComputerChoice(); 
-        if ((humanSelection == "rock" && computerSelection == "paper") || (humanSelection == "paper" && computerSelection == "rock") || (humanSelection == "scissor" && computerSelection == "rock")){
+        console.log(`computerSelection= ${computerSelection}`);
+        if ((humanSelection == "rock" && computerSelection == "scissors") || (humanSelection == "paper" && computerSelection == "rock") || (humanSelection == "scissors" && computerSelection == "paper")){
             console.log("You win!");
             humanScore++;
-        } else if((computerSelection == "rock" && humanSelection == "paper") || (computerSelection == "paper" && humanSelection == "rock") || (computerSelection == "scissor" && humanSelection == "rock")){
+        } else if((computerSelection == "rock" && humanSelection == "scissors") || (computerSelection == "paper" && humanSelection == "rock") || (computerSelection == "scissors" && humanSelection == "paper")){
             console.log("You lose!");
             computerScore++;
         } else{
