@@ -16,4 +16,33 @@ if(int===1){
 }
 }
 
+function playGame(){
+    let humanSelection= "";
+    let computerSelection= "";
+    let humanScore = 0;
+    let computerScore = 0;
+
+    for(let i = 1; i <= 5; i++){
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice(); 
+        if ((humanSelection == "rock" && computerSelection == "paper") || (humanSelection == "paper" && computerSelection == "rock") || (humanSelection == "scissor" && computerSelection == "rock")){
+            console.log("You win!");
+            humanScore++;
+        } else {
+            console.log("You lose!");
+            computerScore++;
+        } 
+    }
+
+    console.log(`You won ${humanScore} rounds and computer won ${computerScore} rounds.`)
+    if(humanScore > computerScore){
+        console.log("You win the game!");
+    } else if (computerScore > humanScore){
+        console.log("You lost the game :(.");
+    } else {
+        console.log("You tied!");
+    }
+}
+
+playGame();
 
