@@ -1,5 +1,5 @@
 function getHumanChoice(){
-    let string = prompt("Enter your choice: ");
+    let string = prompt("Enter your choice of rock, paper, or scissors: ");
     return string = string.toLowerCase();
 }
 
@@ -26,13 +26,13 @@ function playGame(){
         humanSelection = getHumanChoice();
         computerSelection = getComputerChoice(); 
         if ((humanSelection == "rock" && computerSelection == "scissors") || (humanSelection == "paper" && computerSelection == "rock") || (humanSelection == "scissors" && computerSelection == "paper")){
-            console.log("You win! ");
+            console.log(`You win! ${humanSelection} beats ${computerSelection}.`);
             humanScore++;
         } else if((computerSelection == "rock" && humanSelection == "scissors") || (computerSelection == "paper" && humanSelection == "rock") || (computerSelection == "scissors" && humanSelection == "paper")){
-            console.log("You lose!");
+            console.log(`You lose! ${computerSelection} beats ${humanSelection}.`);            
             computerScore++;
         } else{
-            console.log("No one scored.");
+            console.log(`No one scored. ${humanSelection} ties with ${computerSelection}. `);
         }
     }
 
