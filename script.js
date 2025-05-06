@@ -24,11 +24,9 @@ function playGame(){
 
     for(let i = 1; i <= 5; i++){
         humanSelection = getHumanChoice();
-        console.log(`humanSelection = ${humanSelection}`);
         computerSelection = getComputerChoice(); 
-        console.log(`computerSelection= ${computerSelection}`);
         if ((humanSelection == "rock" && computerSelection == "scissors") || (humanSelection == "paper" && computerSelection == "rock") || (humanSelection == "scissors" && computerSelection == "paper")){
-            console.log("You win!");
+            console.log("You win! ");
             humanScore++;
         } else if((computerSelection == "rock" && humanSelection == "scissors") || (computerSelection == "paper" && humanSelection == "rock") || (computerSelection == "scissors" && humanSelection == "paper")){
             console.log("You lose!");
