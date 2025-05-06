@@ -28,10 +28,12 @@ function playGame(){
         if ((humanSelection == "rock" && computerSelection == "paper") || (humanSelection == "paper" && computerSelection == "rock") || (humanSelection == "scissor" && computerSelection == "rock")){
             console.log("You win!");
             humanScore++;
-        } else {
+        } else if((computerSelection == "rock" && humanSelection == "paper") || (computerSelection == "paper" && humanSelection == "rock") || (computerSelection == "scissor" && humanSelection == "rock")){
             console.log("You lose!");
             computerScore++;
-        } 
+        } else{
+            console.log("No one scored.");
+        }
     }
 
     console.log(`You won ${humanScore} rounds and computer won ${computerScore} rounds.`)
