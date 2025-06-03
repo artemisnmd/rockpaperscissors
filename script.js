@@ -1,7 +1,21 @@
-function getHumanChoice(){
-    let string = prompt("Enter your choice of rock, paper, or scissors: ");
-    return string = string.toLowerCase();
-}
+// function getHumanChoice(){
+//     let string = prompt("Enter your choice of rock, paper, or scissors: ");
+//     return string = string.toLowerCase();
+// }
+
+let rockBtn = document.createElement("button");
+rockBtn.textContent = "Rock";
+document.body.appendChild(rockBtn);
+
+let paperBtn = document.createElement("button");
+paperBtn.textContent = "Paper";
+document.body.appendChild(paperBtn);
+
+let scissorBtn = document.createElement("button");
+scissorBtn.textContent = "Scissors";
+document.body.appendChild(scissorBtn);
+
+
 
 function getComputerChoice(){
     let max = 3;
@@ -22,7 +36,7 @@ function playGame(){
     let humanScore = 0;
     let computerScore = 0;
 
-    for(let i = 1; i <= 5; i++){
+    // for(let i = 1; i <= 5; i++){
         humanSelection = getHumanChoice();
         computerSelection = getComputerChoice(); 
         if ((humanSelection == "rock" && computerSelection == "scissors") || (humanSelection == "paper" && computerSelection == "rock") || (humanSelection == "scissors" && computerSelection == "paper")){
@@ -34,7 +48,7 @@ function playGame(){
         } else{
             console.log(`No one scored. ${humanSelection} ties with ${computerSelection}. `);
         }
-    }
+    // }
 
     console.log(`You won ${humanScore} rounds and computer won ${computerScore} rounds.`)
     if(humanScore > computerScore){
