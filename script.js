@@ -21,19 +21,14 @@ function playGame(btnValue) {
 		(humanSelection == "Paper" && computerSelection == "Rock") ||
 		(humanSelection == "Scissors" && computerSelection == "Paper")
 	) {
-		// console.log(`You win! ${humanSelection} beats ${computerSelection}.`);
 		return "human";
 	} else if (
 		(computerSelection == "Rock" && humanSelection == "Scissors") ||
 		(computerSelection == "Paper" && humanSelection == "Rock") ||
 		(computerSelection == "Scissors" && humanSelection == "Paper")
 	) {
-		// console.log(`You lose! ${humanSelection} loses to ${computerSelection}.`);
 		return "computer";
 	} else {
-		// console.log(
-		// 	// `No one scored. ${humanSelection} ties with ${computerSelection}. `
-		// );
 		return "tie";
 	}
 }
@@ -144,31 +139,3 @@ scissorBtn.addEventListener("click", function () {
 		computerScore = 0;
 	}
 });
-
-// rock = () => {
-// 	return "Rock";
-// };
-
-// paper = () => {
-// 	return "Paper";
-// };
-
-// scissors = () => {
-// 	return "Scissors";
-// };
-
-// let test = '';
-// let count = 0;
-// rockBtn.addEventListener("click", function () {
-// 	rock();
-//     count++;
-//     console.log(count);
-// });
-
-// paperBtn.addEventListener("click", function () {
-// 	test = paper();
-//     console.log(test);
-// });
-// scissorBtn.addEventListener("click", function () {
-// 	test = scissors();
-// });
