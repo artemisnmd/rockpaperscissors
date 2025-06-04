@@ -1,7 +1,52 @@
-// function getHumanChoice(){
-//     let string = prompt("Enter your choice of rock, paper, or scissors: ");
-//     return string = string.toLowerCase();
-// }
+function getComputerChoice() {
+	let max = 3;
+	let min = 1;
+	let int = Math.floor(Math.random() * (max - min + 1) + min);
+	if (int === 1) {
+		return "Rock";
+	} else if (int === 2) {
+		return "Paper";
+	} else {
+		return "Scissors";
+	}
+}
+
+function playGame(btnValue) {
+	let humanSelection = btnValue;
+	let computerSelection = "";
+
+	computerSelection = getComputerChoice();
+	if (
+		(humanSelection == "Rock" && computerSelection == "Scissors") ||
+		(humanSelection == "Paper" && computerSelection == "Rock") ||
+		(humanSelection == "Scissors" && computerSelection == "Paper")
+	) {
+		// console.log(`You win! ${humanSelection} beats ${computerSelection}.`);
+		return "human";
+	} else if (
+		(computerSelection == "Rock" && humanSelection == "Scissors") ||
+		(computerSelection == "Paper" && humanSelection == "Rock") ||
+		(computerSelection == "Scissors" && humanSelection == "Paper")
+	) {
+		// console.log(`You lose! ${humanSelection} loses to ${computerSelection}.`);
+		return "computer";
+	} else {
+		// console.log(
+		// 	// `No one scored. ${humanSelection} ties with ${computerSelection}. `
+		// );
+		return "tie";
+	}
+}
+
+function score() {}
+
+let msgDiv = document.createElement("div");
+msgDiv.textContent = "Choose Rock, Paper or Scissors";
+document.body.appendChild(msgDiv);
+
+let scoreDiv = document.createElement("div");
+scoreDiv.textContent = `Human Score: 0 Computer Score: 0`;
+document.body.appendChild(scoreDiv);
 
 let rockBtn = document.createElement("button");
 rockBtn.textContent = "Rock";
@@ -15,47 +60,115 @@ let scissorBtn = document.createElement("button");
 scissorBtn.textContent = "Scissors";
 document.body.appendChild(scissorBtn);
 
-rockBtn.addEventListener("click", function(){playGame("Rock");});
-paperBtn.addEventListener("click",function(){playGame("Paper");});
-scissorBtn.addEventListener("click",function(){playGame("Scissors");})
+let winCheck = "";
+let humanScore = 0;
+let computerScore = 0;
 
-function getComputerChoice() {
-    let max = 3;
-    let min = 1;
-    let int = Math.floor(Math.random() * (max - min + 1) + min);
-    if (int === 1) {
-        return "Rock";
-    } else if (int === 2) {
-        return "Paper";
-    } else {
-        return "Scissors";
-    }
-}
+rockBtn.addEventListener("click", function () {
+	winCheck = playGame("Rock");
+	if (winCheck == "computer") {
+		computerScore++;
+		msgDiv.textContent = `You lose!`;
+		scoreDiv.textContent = `Human Score: ${humanScore}  Computer Score :${computerScore}`;
+	} else if (winCheck == "human") {
+		humanScore++;
+		msgDiv.textContent = `You win!`;
+		scoreDiv.textContent = `Human Score: ${humanScore}  Computer Score :${computerScore}`;
+	} else {
+		msgDiv.textContent = `You tied!`;
+		scoreDiv.textContent = `Human Score: ${humanScore}  Computer Score :${computerScore}`;
+	}
+	if (humanScore == 5) {
+		msgDiv.textContent = "You have won the game!";
+		scoreDiv.textContent = "Resetting scores to 0";
+		humanScore = 0;
+		computerScore = 0;
+	} else if (computerScore == 5) {
+		msgDiv.textContent = "You have lost the game:(";
+		scoreDiv.textContent = "Resetting scores to 0";
+		humanScore = 0;
+		computerScore = 0;
+	}
+});
 
-function playGame(btnValue) {
-    let humanSelection = btnValue;
-    let computerSelection = "";
+paperBtn.addEventListener("click", function () {
+	winCheck = playGame("Paper");
+	if (winCheck == "computer") {
+		computerScore++;
+		msgDiv.textContent = `You lose!`;
+		scoreDiv.textContent = `Human Score: ${humanScore}  Computer Score :${computerScore}`;
+	} else if (winCheck == "human") {
+		humanScore++;
+		msgDiv.textContent = `You win!`;
+		scoreDiv.textContent = `Human Score: ${humanScore}  Computer Score :${computerScore}`;
+	} else {
+		msgDiv.textContent = `You tied!`;
+		scoreDiv.textContent = `Human Score: ${humanScore}  Computer Score :${computerScore}`;
+	}
+	if (humanScore == 5) {
+		msgDiv.textContent = "You have won the game!";
+		scoreDiv.textContent = "Resetting scores to 0";
+		humanScore = 0;
+		computerScore = 0;
+	} else if (computerScore == 5) {
+		msgDiv.textContent = "You have lost the game:(";
+		scoreDiv.textContent = "Resetting scores to 0";
+		humanScore = 0;
+		computerScore = 0;
+	}
+});
 
-    computerSelection = getComputerChoice();
-    if (
-        (humanSelection == "Rock" && computerSelection == "Scissors") ||
-        (humanSelection == "Paper" && computerSelection == "Rock") ||
-        (humanSelection == "Scissors" && computerSelection == "Paper")
-    ) {
-        console.log(`You win! ${humanSelection} beats ${computerSelection}.`);
-        return true;
+scissorBtn.addEventListener("click", function () {
+	winCheck = playGame("Scissors");
+	if (winCheck == "computer") {
+		computerScore++;
+		msgDiv.textContent = `You lose!`;
+		scoreDiv.textContent = `Human Score: ${humanScore}  Computer Score :${computerScore}`;
+	} else if (winCheck == "human") {
+		humanScore++;
+		msgDiv.textContent = `You win!`;
+		scoreDiv.textContent = `Human Score: ${humanScore}  Computer Score :${computerScore}`;
+	} else {
+		msgDiv.textContent = `You tied!`;
+		scoreDiv.textContent = `Human Score: ${humanScore}  Computer Score :${computerScore}`;
+	}
+	if (humanScore == 5) {
+		msgDiv.textContent = "You have won the game!";
+		scoreDiv.textContent = "Resetting scores to 0";
+		humanScore = 0;
+		computerScore = 0;
+	} else if (computerScore == 5) {
+		msgDiv.textContent = "You have lost the game:(";
+		scoreDiv.textContent = "Resetting scores to 0";
+		humanScore = 0;
+		computerScore = 0;
+	}
+});
 
-    } else if (
-        (computerSelection == "Rock" && humanSelection == "Scissors") ||
-        (computerSelection == "Paper" && humanSelection == "Rock") ||
-        (computerSelection == "Scissors" && humanSelection == "Paper")
-    ) {
-        console.log(`You lose! ${humanSelection} loses to ${computerSelection}.`);
-        return false;
+// rock = () => {
+// 	return "Rock";
+// };
 
-    } else {
-        console.log(
-            `No one scored. ${humanSelection} ties with ${computerSelection}. `
-        );
-    }
-}
+// paper = () => {
+// 	return "Paper";
+// };
+
+// scissors = () => {
+// 	return "Scissors";
+// };
+
+// let test = '';
+// let count = 0;
+// rockBtn.addEventListener("click", function () {
+// 	rock();
+//     count++;
+//     console.log(count);
+// });
+
+// paperBtn.addEventListener("click", function () {
+// 	test = paper();
+//     console.log(test);
+// });
+// scissorBtn.addEventListener("click", function () {
+// 	test = scissors();
+// });
